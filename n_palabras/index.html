@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body bgcolor="#FAFCAF">
+    <center>
+
+        <H1>
+            <n>GENERADOR DE PALABRAS RANDOM </n>
+        </H1><br></br>
+
+        <label style="background-color: rgb(214, 164, 255);"><i>Ingresa un numero </i></label>
+        <input type="text" id="numero" name="numero" class="test">
+        <button onclick="generar()" style="background-color: rgb(241, 128, 223);"> generar</button><br></br>
+        <label id="muestra"><i> </i></label>
+
+    </center>
+
+</body>
+<script>
+    function generar() {
+        const generateRandomString = (num) => {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            let result1 = Math.random().toString(36).substring(8,num);
+
+            return result1;
+        }
+        console.log(generateRandomString(7));
+        document.getElementById("muestra").innerHTML=generateRandomString(7);
+    }
+</script>
+
+</html>

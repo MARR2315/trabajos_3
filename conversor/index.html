@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONVERSOR</title>
+</head>
+
+<body bgcolor="#FAFCAF">
+    <center>
+
+        <H1><n>CONVERSOR DE NUMEROS A LETRAS </n></H1><br></br>
+
+        <label><i>Ingresa un numero </i></label>
+        <input type="text" id="numero" name="numero" class="test">
+        <button id="siguiente" onclick="Siguiente()" style="background-color: rgb(131, 225, 195);">convertir </button><br></br>
+        <label for="" id="muestra"></label><br></br>
+
+        <H1><n>CONVERSOR DE LETRAS A NUMEROS</n></H1><br></br>
+
+        <label><i>Escribe un numero en mayusculas </i></label>
+        <input type="text" id="c1" name="numero" class="test" background="B0F2C2">
+        <button id="siguiente" onclick="Siguiente2()" style="background-color: rgb(131, 225, 195);">convertir </button><br></br>
+        <label for="" id="muestra_num"></label>
+
+    </center>
+</body>
+
+<script>
+    function Siguiente() {
+        var valores = [];
+        let numero = document.getElementById('numero').value;
+        console.log(numero)
+        let letras = " ";
+        caracteres = numero.length;
+        for (let i = 0; i < caracteres; i++) {
+            if (numero[i] == 0) {
+                letras = "CERO";
+            }
+            if (numero[i] == 1) {
+                letras = "UNO";
+            }
+            if (numero[i] == 2) {
+                letras = "DOS";
+            }
+            if (numero[i] == 3) {
+                letras = "TRES";
+            }
+            if (numero[i] == 4) {
+                letras = "CUATRO";
+            }
+            if (numero[i] == 5) {
+                letras = "CINCO";
+            }
+            if (numero[i] == 6) {
+                letras = "SEIS";
+            }
+            if (numero[i] == 7) {
+                letras = "SIETE";
+            }
+            if (numero[i] == 8) {
+                letras = "OCHO";
+            }
+            if (numero[i] == 9) {
+                letras = "NUEVE";
+            }
+            console.log(letras);
+
+            valores[i] = letras;
+
+
+        }
+
+        document.getElementById("muestra").innerHTML = valores;
+        console.log(letras);
+    }
+
+
+    function Siguiente2() {
+        let C1 = document.getElementById('c1').value;
+        let num = " ";
+        var valoresw = [];
+        caracteres = numero.length;
+        for (let i = 0; i < 1; i++) {
+            if (C1 == "CERO") {
+                num = 0;
+            }
+            if (C1 == "UNO") {
+                num = 1;
+            }
+            if (C1 == "DOS") {
+                num = 2;
+            }
+            if (C1 == "TRES") {
+                num = 3;
+            }
+            if (C1 == "CUATRO") {
+                num = 4;
+            }
+            if (C1 == "CINCO") {
+                num = 5;
+            }
+            if (C1 == "SEIS") {
+                num = 6;
+            }
+            if (C1 == "SIETE") {
+                num = 7;
+            }
+            if (C1 == "OCHO") {
+                num = 8;
+            }
+            if (C1 == "NUEVE") {
+                num = 9;
+            }
+            console.log(num);
+            valoresw[i] = num;
+        }
+
+        document.getElementById("muestra_num").innerHTML = valoresw;
+        console.log(valoresw);
+    }
+
+
+
+</script>
+
+</html>
