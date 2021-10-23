@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUZMAN</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>SORTEO</h1>
+      <div class="participantes">
+        <canvas id="idcanvas" width="400" height="400"></canvas>
+        <br>
+        <button onclick="sorteo()"><span id="idestado">GIRAR</span></button>
+        <div class="winner"></div>
+      </div>
+    </div>
+    <script type="text/javascript"> 
+      var nombres = ["h","l","i","e","q","ghgj","opop"];
+      let canvas = document.getElementById("idcanvas");
+      let texto = canvas.getContext("2d");
+      let centro = canvas.width / 2;
+
+        texto.beginPath();
+        texto.moveTo(centro, centro);
+        texto.arc(centro, centro, centro -10,0, 2 * Math.PI );
+        texto.lineTo(centro, centro);
+        texto.fillStyle = "black";
+        texto.fill();
+
+
+      for (var i = 0; i < nombres.length; i++) {
+        texto.beginPath();
+        texto.moveTo(centro, centro);
+        texto.arc(centro, centro, centro - 20, i * 2 * Math.PI / nombres.length,(i + 1) * 2 * Math.PI / nombres.length);
+        texto.lineTo(centro, centro);
+        texto.fillStyle = random();
+        texto.fill();
+
+        texto.save()
+        texto.translate(centro,centro)
+        texto.rotate(3*2*Math.PI/(5*nombres.length)+i*2*Math.PI/nombres.length)
+        texto.translate(-centro,-centro)
+        texto.font= "13px Sans Serif"
+        texto.textAlign ="right"
+        texto.fillStyle ="white"
+        texto.fillText(nombres[i],canvas.width-30,centro)
+        texto.restore()
+      }
+
+      let inicio =0
+      let click =0
+      let mover
+
+      function sorteo() {
+        if (click ==0) {
+          let canvas = document.getElementById("idcanvas")
+          mover = setInterval(function(){
+            inicio+=10
+            canvas.style.transform="rotate("+inicio+"deg)"
+          },10)
+          click=1
+          document.getElementById("idestado")="Detener"
+        }else{
+          clearInterval(mover)
+          click=0
+          document.getElementById("idestado")= "Sorteo"
+        }
+        
+      }
+
+
+      function random() {
+        let digito = ["2", "3", "4", "5", "6", "7", "8", "9"];
+        let color = "";
+        let i = 0;
+        while (i < 6) {
+          let posicion = Math.round(Math.random() * (digito.length - 1));
+          color = color + "" + digito[posicion];
+          i++;
+
+        }
+        return '#' + color;
+      }
+    </script>
+  </body>
+</html>

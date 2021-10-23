@@ -26,13 +26,22 @@
 <script>
     function generar() {
         const generateRandomString = (num) => {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-            let result1 = Math.random().toString(36).substring(8,num);
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result1 = ' ';
+            const charactersLength = characters.length;
+            for (let i = 0; i < num; i++) {
+                result1 += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
 
             return result1;
         }
-        console.log(generateRandomString(7));
-        document.getElementById("muestra").innerHTML=generateRandomString(7);
+
+        const displayRandomString = () => {
+            let randomStringContainer = document.getElementById('random_string');
+            randomStringContainer.innerHTML = generateRandomString(8);
+        }
+        console.log(generateRandomString(5));
+        document.getElementById("muestra").innerHTML = generateRandomString(7);
     }
 </script>
 
